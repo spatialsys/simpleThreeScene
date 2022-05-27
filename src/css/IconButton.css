@@ -1,0 +1,67 @@
+.iconButton {
+	position: relative;
+}
+
+.iconButton i {
+	padding: 4px;	
+	border:  2px solid rgbA(0, 0, 0, 0);
+	border-radius: 1000px;
+	transition: border, opacity .5s ease;
+	opacity: 1;
+}
+
+.iconButton:hover i {
+  opacity: 0.6 !important;
+}
+
+.iconButton i.iconButtonRing {
+	border:  2px solid;
+}
+
+.iconButton .callout {
+	position:  absolute;
+
+	/*transform: translateX(-50%);*/
+	transform-origin: 50% 100%;
+
+	top: -20px;
+	left:  50%;
+}
+
+.iconButton .calloutText {
+	position:  absolute;
+	height:  24px;
+	bottom: -16px;
+	left:  50%;
+	transform: translateX(-50%);
+	background: white;
+	color:  black;
+	text-align: center;
+	padding: .25rem 12px;
+	border-radius: 1000px;
+
+	white-space:  nowrap;
+	/*white-space:  normal;*/
+	/*word-break: break-all;*/
+	/*width:  max-content;*/
+	max-width: 320px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	font-size: .75rem;
+	text-transform: capitalize;
+	letter-spacing: .5px;
+}
+
+.iconButton .pivot {
+	position:  absolute;
+	text-align: center;
+	top: 8px;
+	left:  50%;
+	background: white;
+	width:  12px;
+	height:  12px;
+	rotate:  45deg;
+	transform: translateX(-50%) rotate(45deg);
+	z-index: -1;
+}

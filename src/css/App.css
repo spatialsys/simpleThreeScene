@@ -1,0 +1,611 @@
+@import url("./styles/basscss.min.css");
+@import url("./styles/Colors.css");
+@import url("./styles/Type.css");
+@import url("./styles/Input.css");
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+input {
+  padding: 0px;
+  margin: 0px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#SceneContainer {
+  transition: opacity 1s var(--emo-out) 1s;
+}
+
+canvas {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}
+
+/* radio button */
+form.radioToggleContainer {
+  background: #f5f5f5;
+  border-radius: 48px;
+  box-shadow: 0px 24px 56px rgba(0, 0, 0, 0.2);
+}
+
+input[type="radio"].toggle {
+  display: none;
+}
+
+input[type="radio"].toggle + i {
+  background: transparent;
+  border-radius: 50%;
+  padding: 8px 9px;
+  opacity: 0.2;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: none;
+
+  transition: all 0.2s ease-out;
+}
+
+input[type="radio"].toggle:checked + i {
+  color: black;
+  background: white;
+  opacity: 1 !important;
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+input[type="radio"].toggle:hover + i {
+  /*color: blue;*/
+  opacity: 0.4;
+}
+
+/*input[type="radio"].toggle-left + label {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[type="radio"].toggle-right + label {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}*/
+
+select {
+  font: inherit;
+  margin: 0;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+label.select {
+  position: relative;
+}
+
+label.select:after {
+  content: "arrow_drop_down";
+  font: 32px "Material Icons";
+  opacity: 0.6;
+  right: 8px;
+  top: -8px;
+  position: absolute;
+  pointer-events: none;
+}
+
+#scene {
+  position: absolute;
+  top: 0;
+}
+
+#ThreeCanvas: {
+  /*cursor: grab !important;*/
+}
+
+#ThreeCanvas:hover {
+  cursor: grab;
+}
+
+#ThreeCanvas:active {
+  cursor: grabbing;
+}
+
+.grab {
+  cursor: grab !important;
+}
+
+.grabbing {
+  cursor: grabbing !important;
+}
+
+.gutters {
+  margin: 2rem;
+}
+
+.user-select-none {
+  user-select: none;
+}
+
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.pointer-events {
+  pointer-events: auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hover-hide {
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 0.25s var(--emo-out);
+}
+
+.hover-hide:hover {
+  opacity: 0;
+}
+
+.hover {
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 0.25s var(--emo-out);
+}
+
+.hover:hover {
+  opacity: 0.6 !important;
+}
+
+.hover-bg {
+  cursor: pointer;
+  color: white;
+  background: black;
+
+  transition-property: background-color, color;
+  transition-duration: .25s;
+  transition-timing-function: ease-out;
+}
+
+.hover-bg:hover {
+  background: red;
+  color: black;
+}
+
+.border-2 {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.exclusion {
+  color: white !important;
+  mix-blend-mode: exclusion;
+}
+
+.desaturate {
+  filter:  grayscale(100%);
+}
+
+.isolation {
+  isolation: isolate;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.invert {
+  filter: invert();
+}
+
+.centerX {
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.centerY {
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.centerAll {
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  top: 50%;
+}
+
+.squared {
+  border-radius: 0px;
+}
+
+.rounded {
+  border-radius: 16px;
+}
+
+.row {
+  padding: 16px 0px;
+}
+
+.row p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.vcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contents {
+  display: contents;
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+.full-viewport {
+  width: 100vw;
+  height: 100vh;
+}
+
+.full-viewport-width {
+  width: 100vw;
+}
+
+.full-viewport-max-width {
+  max-width: 100vw;
+}
+
+.full-viewport-height {
+  height: 100vh;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.full-height-max {
+  max-height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-with-panel {
+  width: calc(100% - 400px);
+  height: 100%;
+}
+
+.full-width-with-panel {
+  width: calc(100% - 400px);
+}
+
+a {
+  color: #000;
+}
+
+#stats {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.small-type {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.white {
+  color: white;
+}
+
+.material-icons, .material-icons-outlined {
+  vertical-align: middle;
+  /*user-select: none;*/
+}
+
+i.micro {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+i.small {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+i.medium {
+  font-size: 32px;
+  font-weight: normal;
+}
+
+i.large {
+  font-size: 48px;
+  font-weight: normal;
+}
+
+i.flip {
+  transform: rotate(180deg);
+}
+
+i.rotate90 {
+  transform: rotate(90deg);
+}
+
+.rotate360, .rotate-360 {
+  transform: rotate(360deg);
+}
+
+.rotate90, .rotate-90 {
+  transform: rotate(90deg);
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+.width-inherit {
+  width:  inherit;
+}
+
+iframe, .iframe {
+  border:  none;
+}
+
+button,
+.button {
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+button:focus, .button:focus, input:focus, select:focus {
+  outline: none;
+}
+
+.circle {
+  border-radius: 500px;
+}
+
+.circleButton {
+  display: inline-block;
+  border-radius: 500px;
+}
+
+.buttonLabel {
+  vertical-align: middle;
+  padding-left: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+input.hiddenInput {
+  /*position: absolute;*/
+  font-size: 16px; /* crazy hack so ios doesn't zoom in on focus */
+  box-sizing: border-box;
+  width: calc(100% - 120px);
+  height: 96px;
+  opacity: 0;
+  caret-color: transparent;
+  background: transparent;
+  border: transparent;
+  color: transparent;
+  transform: translateY(-128px);
+}
+
+.mt5 {
+  margin-top: 6rem;
+}
+
+.hidden {
+  position: absolute;
+  top: -99999px;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+.blink {
+  animation-name: blink;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+
+.shadowSmall {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.shadowLarge {
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.shadowHuge {
+  box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.2);
+}
+
+.shadowLarge-filter {
+  filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+.shadowLarge-dense-filter {
+  filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.4));
+}
+
+.shadowHuge-filter {
+  filter: drop-shadow(0px 32px 64px rgba(0, 0, 0, 0.2));
+}
+
+.textShadowSmall {
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.textShadow {
+  text-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.textShadowLarge {
+  text-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.textShadowHuge {
+  text-shadow: 0px 32px 64px rgba(0, 0, 0, 0.2);
+}
+
+.mapButton {
+  transition: all 300ms var(--emo-out);
+}
+
+.zn1 {
+  z-index: -1
+}
+
+.m0-5 {
+  margin-left: .25rem;
+  margin-right: .25rem;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+}
+
+.px0-5 {
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+.px3-5 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.mb-r, .mb4-r {
+  margin-bottom: 8rem;
+}
+
+.mb3-r {
+  margin-bottom: 3rem;
+}
+
+.mb2-r {
+  margin-bottom: 2rem;
+}
+
+.mt2-r {
+  margin-top: 2rem;
+}
+
+.min-width-4 {
+  min-width: 50rem;
+}
+
+.footer {
+  transform: scale(1);
+  font-size: .85rem;
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+.scale-80 {
+  transform: scale(.8);
+}
+
+.scale-0 {
+  transform: scale(0);
+}
+
+select {
+  /*background: yellow !important;*/
+}
+
+select option {
+  /*background: red !important;*/
+  /*color: white*/
+}
+select option:checked {
+  box-shadow: 0 0 10px 100px white inset;
+  color: white;
+}
+
+@keyframes blink {
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.container {
+  height: calc(100vh - env(safe-area-inset-bottom))
+}
+
+
+/* xs */
+@media (max-width: 40em) {
+  .row {
+    padding: 8px 0px;
+  }
+
+  .mb-r, .mb4-r {
+    margin-bottom: 4rem;
+  }
+
+  .mb3-r {
+    margin-bottom: 1rem;
+  }
+
+  .mb2-r {
+    margin-bottom: .5rem;
+  }
+
+  .gutters {
+    margin: 1rem;
+  }
+
+  .footer {
+    transform: scale(.85);
+    font-size: .85rem;
+  }
+
+}
+
+/* sm */
+@media (min-width: 40em) and (max-width: 52em) {
+
+}
+
+/* md */
+@media (min-width: 52em) and (max-width: 64em) {
+
+}
+
+/* lg */
+@media (min-width: 64em) and (max-width: 76em) {
+}

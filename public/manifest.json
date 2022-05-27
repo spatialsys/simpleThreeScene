@@ -1,0 +1,14 @@
+{
+  "name": "tele-",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512"
+    }
+  ]
+}
